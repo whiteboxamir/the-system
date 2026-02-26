@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The System - School of the Fourth Way</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Ambient Background -->
+    <div class="ambient-bg"></div>
+    <div class="noise-overlay"></div>
+
+    <main class="app-container">
+
+        <!-- Welcome / Onboarding Sequence (The Voice of Ouspensky) -->
+        <section id="intro-sequence" class="sequence active">
+            <div class="voice-box">
+                <p id="voice-text" class="voice-text">"It is necessary to observe oneself."</p>
+                <div class="voice-controls">
+                    <button class="ghost-btn" id="next-voice">Listen</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Main System Dashboard -->
+        <section id="dashboard" class="sequence hidden">
+            <header class="glass-header">
+                <div class="logo-mark">THE SYSTEM</div>
+                <div class="user-status">State: <span class="state-indicator awake">Asleep</span></div>
+            </header>
+
+            <div class="content-grid">
+
+                <!-- Chat / Agent Interface -->
+                <div class="agent-panel glass-panel">
+                    <div class="agent-header">
+                        <h2>The Teacher</h2>
+                        <span class="online-dot"></span>
+                    </div>
+
+                    <div class="chat-history" id="chat-history">
+                        <div class="message agent-msg">
+                            <p>You have arrived. Most people sleep their entire lives, governed by the Law of Accident.
+                                Do you wish to begin the work of studying the machine?</p>
+                        </div>
+                    </div>
+
+                    <div class="interaction-area">
+                        <div id="observation-form-container" class="hidden interactive-form">
+                            <h4>Record an Observation</h4>
+                            <p class="sub-label">Be literal. Do not philosophize. Photograph the machine.</p>
+
+                            <form id="obs-form">
+                                <div class="form-row">
+                                    <label>Center Observed:</label>
+                                    <select id="centerSelect" required class="glass-input">
+                                        <option value="moving">Moving Center</option>
+                                        <option value="instinctive">Instinctive Center</option>
+                                        <option value="intellectual">Intellectual Center</option>
+                                        <option value="emotional">Emotional Center</option>
+                                        <option value="sex">Sex Center</option>
+                                    </select>
+                                </div>
+                                <div class="form-row">
+                                    <label>Duration (minutes):</label>
+                                    <input type="number" id="durationInput" min="1" value="5" class="glass-input"
+                                        required>
+                                </div>
+                                <div class="form-row checkbox-row">
+                                    <input type="checkbox" id="identifiedInput" />
+                                    <label for="identifiedInput">Did you identify? (Were you absorbed by the
+                                        event?)</label>
+                                </div>
+                                <div class="form-row">
+                                    <label>The Observation:</label>
+                                    <textarea id="textInput" rows="3" placeholder="I noticed my hand clenching..."
+                                        class="glass-input" required></textarea>
+                                </div>
+                                <button type="submit" class="primary-btn">Submit to The Teacher</button>
+                                <button type="button" class="ghost-btn" id="cancel-obs">Cancel</button>
+                            </form>
+                        </div>
+
+                        <div class="action-buttons" id="action-buttons">
+                            <button class="action-btn" id="btn-begin">"I wish to begin."</button>
+                            <button class="action-btn" id="btn-observe" class="hidden" style="display:none;">Record
+                                Observation</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Work / Curriculum Panel -->
+                <div class="work-panel glass-panel">
+                    <h3>Your Current Work</h3>
+                    <div class="aim-card">
+                        <div class="aim-label">Current Aim</div>
+                        <p id="current-aim">Introduction to the Machine. Awaken the desire to observe.</p>
+                    </div>
+
+                    <div class="progress-section">
+                        <h4>Understanding</h4>
+                        <div class="progress-track" title="Self-Remembering Capability">
+                            <div class="progress-fill" style="width: 2%"></div>
+                        </div>
+                        <p class="metric-text">State: Identification</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="engine.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
