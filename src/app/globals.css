@@ -1,26 +1,69 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Base Layer ─────────────────────────────────────────────── */
+
+@layer base {
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        @apply bg-stone-50 text-neutral-900 font-sans;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-semibold tracking-tight text-neutral-900;
+    }
+
+    a {
+        @apply text-neutral-500 no-underline transition-colors duration-150;
+    }
+
+    a:hover {
+        @apply text-neutral-900;
+    }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ── Component Layer ────────────────────────────────────────── */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@layer components {
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    /* Buttons */
+    .btn {
+        @apply inline-block px-6 py-2 text-sm font-medium text-white bg-neutral-800 rounded transition-colors duration-150 no-underline leading-relaxed;
+    }
+
+    .btn:hover {
+        @apply bg-neutral-700 text-white;
+    }
+
+    .btn-secondary {
+        @apply bg-transparent text-neutral-600 border border-neutral-300;
+    }
+
+    .btn-secondary:hover {
+        @apply bg-neutral-100 text-neutral-800;
+    }
+
+    /* Form elements */
+    .form-input {
+        @apply w-full px-3 py-2 text-base text-neutral-900 bg-white border border-neutral-300 rounded outline-none transition-colors duration-150;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .form-input:focus {
+        @apply border-neutral-500;
+    }
+
+    .form-input::placeholder {
+        @apply text-neutral-400;
+    }
 }
